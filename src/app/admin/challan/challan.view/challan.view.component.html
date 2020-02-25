@@ -1,0 +1,37 @@
+<app-spinner [show]="spinner"></app-spinner>
+
+<div class="container-fluid  mt-5">
+  <div class="row">
+    <div class="col-md-12 col-12 mx-auto">
+      <h1>Challans List</h1>
+    </div>
+  </div>
+  <div class="row" *ngIf="challans.length > 0" style="margin-top:2em;">
+    <div class="col-md-12 col-12 mx-auto ">
+      <table class="table table-inbox table-hover table-bordered">
+        <thead>
+          <tr class="unread">
+            <td class="view-message" >No.</td>
+            <td class="view-message">Challan Id</td>
+            <td class="view-message">Challan Description</td>
+            <td class="view-message">Client name</td>
+            <td class="view-message">Created Date</td>
+            <td class="view-message">View/print Challan</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="unread" *ngFor="let challan of challans; let i = index;">
+            <td class="view-message">{{i+1}}</td>
+            <td class="view-message text-left" *ngIf="challan.challanId">{{challan.challanId}}</td>
+            <td class="view-message" *ngIf="challan.challanId">{{challan.description}}</td>
+            <td class="view-message" *ngIf="challan.challanId">{{challan.clientsId.clientName}}</td>
+            <td class="view-message" *ngIf="challan.challanId">{{challan.createdAt | date:'dd-MMM-yyyy'}}</td>
+            <td class="view-message" *ngIf="challan.challanId">
+              <a target="_blank" routerLink="/admin/challan/print/{{challan.challanId}}" class="btn btn-primary btn-sm">View/print Challan</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

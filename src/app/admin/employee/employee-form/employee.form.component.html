@@ -1,0 +1,244 @@
+<div class="container-fluid  mt-5">
+  <div class="row">
+    <app-spinner [show]="spinner"></app-spinner>
+    <div class="col-md-12 mx-auto">
+      <div class="card-group">
+        <div class="card p-1">
+          <div class="card-body">
+            <form [formGroup]="employeeForm">
+              <h2>Employee Details Page</h2>
+              <div class="row">
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           id="first"
+                           formControlName="first">
+                    <label for="first"
+                           class="">First Name</label>
+                    <mdb-error>{{getError('first')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           id="middle"
+                           formControlName="middle">
+                    <label for="middle"
+                           class="">Middle name</label>
+                    <mdb-error>{{getError('middle')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           id="last"
+                           formControlName="last">
+                    <label for="last"
+                           class="">last</label>
+                    <mdb-error>{{getError('last')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           id="address"
+                           formControlName="address">
+                    <label for="address"
+                           class="">address</label>
+                    <mdb-error>{{getError('address')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           id="profileurl"
+                           formControlName="profileUrl">
+                    <label for="profileurl"
+                           class="">profileurl</label>
+                    <mdb-error>{{getError('profileUrl')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           id="aadharno"
+                           formControlName="aadharNo">
+                    <label for="aadharno"
+                           class="">aadharNo</label>
+                    <mdb-error>{{getError('aadharNo')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           id="aadharNoPhotoFront"
+                           formControlName="aadharNoPhotoFront">
+                    <label for="aadharNoPhotoFront"
+                           class="">aadharNoPhotoFront</label>
+                    <mdb-error>{{getError('aadharNoPhotoFront')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           id="aadharNoPhotoBack"
+                           formControlName="aadharNoPhotoBack">
+                    <label for="aadharNoPhotoBack"
+                           class="">aadharNoPhotoBack</label>
+                    <mdb-error>{{getError('aadharNoPhotoBack')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           id="panno"
+                           formControlName="panNo">
+                    <label for="panno"
+                           class="">panNo</label>
+                    <mdb-error>{{getError('panNo')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           id="panNoPhotoFront"
+                           formControlName="panNoPhotoFront">
+                    <label for="panNoPhotoFront"
+                           class="">panNoPhotoFront</label>
+                    <mdb-error>{{getError('panNoPhotoFront')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           id="panNoPhotoBack"
+                           formControlName="panNoPhotoBack">
+                    <label for="pannophoto_back"
+                           class="">pannophoto_back</label>
+                    <mdb-error>{{getError('panNoPhotoBack')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           id="bankAccountNo"
+                           formControlName="bankAccountNo">
+                    <label for="bankAccountNo"
+                           class="">bankAccountNo</label>
+                    <mdb-error>{{getError('bankAccountNo')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           formControlName="bankName">
+                    <label class="">bankName</label>
+                    <mdb-error>{{getError('bankName')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           formControlName="bankAccountName">
+                    <label for="bankAccountName"
+                           class="">bank_account_no</label>
+                    <mdb-error>{{getError('bankAccountName')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           id="bankIfsc"
+                           formControlName="bankIfsc">
+                    <label for="bank_ifsc"
+                           class="">bankIfsc</label>
+                    <mdb-error>{{getError('bankIfsc')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           formControlName="bankMicr">
+                    <label class="">bankMicr</label>
+                    <mdb-error>{{getError('bankMicr')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           id="email"
+                           formControlName="email">
+                    <label for="email"
+                           class="">email</label>
+                    <mdb-error>{{getError('email')}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput
+                           type="text"
+                           class="form-control"
+                           id="phone"
+                           formControlName="phone">
+                    <label for="phone"
+                           class="">phone</label>
+                    <mdb-error>{{getError('phone')}}</mdb-error>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 text-center">
+                  <button type="button"
+                          (click)="updateItem()"
+                          class="btn btn-primary btn-sm"
+                          *ngIf="item && item.employeeId">Update Item</button>
+                  <button type="button"
+                          (click)="addItem()"
+                          class="btn btn-primary btn-sm mr-2"
+                          *ngIf="!item">Add
+                    Item</button>
+                  <a routerLink="/admin/employee"
+                     class="btn btn-primary btn-sm mr-2">Go Back</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

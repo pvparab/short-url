@@ -1,0 +1,62 @@
+<div class="container-fluid  mt-5">
+  <div class="row">
+    <app-spinner [show]="spinner"></app-spinner>
+    <div class="col-md-12 mx-auto table-responsive">
+      <table mdbTable
+             class="z-depth-1">
+        <tbody>
+          <tr>
+            <td colspan="4">
+              <div>
+                <input type="text"
+                       class="form-control"
+                       id="search"
+                       mdbInput
+                       placeholder="Search here......."
+                       (input)="onSearchChange($event.target.value)">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td *ngFor="let head of headElements; let i = index"
+                scope="col">
+
+              {{head}}
+            </td>
+          </tr>
+          <tr *ngFor="let item of galleryItems; let i = index">
+            <td>{{ i+1}}</td>
+            <td>
+              <img [src]="item.imageUrl"
+              class="img-thumbnail img-height-table"
+              alt='ITEM'
+              onerror="this.src='assets/no-image.svg'" (click)="openEnlargeImage(i)" />
+            </td>
+            <td>{{item.clientsId.clientName}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.description}}</td>
+            <td>
+              <a routerLink="/admin/gallery/images/form/{{item.galleryImagesId}}"
+                 class="btn btn-primary btn-sm mr-2" target="blank">Edit</a>
+            </td>
+            <td>
+              <button ngxClipboard
+                      class="btn btn-primary btn-sm"
+                      (click)="copytoclipboard()"
+                      [cbContent]="item.imageUrl">Copy to clipboard</button>
+
+            </td>
+
+          </tr>
+        </tbody>
+        <tfoot class="grey lighten-5 w-100">
+          <tr>
+            <td colspan="9">
+              <mdb-table-pagination [searchDataSource]="galleryItems"></mdb-table-pagination>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>

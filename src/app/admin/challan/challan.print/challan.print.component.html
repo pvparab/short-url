@@ -1,0 +1,85 @@
+<app-spinner [show]="spinner"></app-spinner>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <button style="margin-top: 30px;" class="btn btn-primary" printSectionId="print-challan" [useExistingCss]="true"
+        ngxPrint>Print and/or Save as PDF</button>
+      <!-- <button style="margin-top: 30px;" class="btn btn-primary">Send as Email</button> -->
+    </div>
+  </div>
+</div>
+<div id="print-challan" class="container-fluid" style="margin-top: 30px;border:1px solid #e8e8e8;color: blue">
+  <div class="row">
+    <div class="col-md-12">
+      <div style="margin:10px;border: 1px solid blue;">
+        <div style="margin:10px;border: 1px solid blue;">
+          <h5 class="text-center" style="margin-bottom: 0px">Gate Pass Cum Challan</h5>
+          <h1 class="text-center text-danger" style="margin-bottom: 0px">AVISHKAR DECORATORS</h1>
+          <h6 class="text-center" style="margin-bottom: 0px">MANDAP & STAGE DECORATORS</h6>
+          <h6 class="text-center" style="margin-bottom: 0px">SPECIALIST IN : ALL TYPES OF VENU AND SETUPS</h6>
+          <p class="text-center" style="margin-bottom: 0px">Near Saibaba Mandir, Opp. M.I.G. Cricket Club, Ghandhi
+            Nagar, Bandra (East), Mumbai -
+            400051.</p>
+          <p class="text-center">Tel. : 022 2642 0737 &nbsp;&nbsp;Mob. : 91 98210 99650</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div style="margin:10px;border: 1px solid blue;">
+        <div style="margin:10px;border: 1px solid blue;">
+          <div class="row text-left">
+            <div class="col-md-9" style="border-right: 1px solid blue;">
+              <p style="border-bottom: 1px solid blue;margin: 20px;" *ngIf="clientData.clientName"> M/s. -
+                {{clientData.clientName}} {{clientData.officeAddress}}
+              </p>
+              <p style="border-bottom: 1px solid blue;margin: 20px;">
+
+              </p>
+              <p style="border-bottom: 1px solid blue;margin: 20px;">
+
+              </p>
+            </div>
+            <div class="col-md-3" style="border-left: 1px solid blue;" *ngIf="challanData.challanId">
+              <p style="border-bottom: 1px solid blue;padding: 10px;">
+                Challan No : {{challanData.challanId}}
+              </p>
+              <p style="border-bottom: 1px solid blue;padding: 10px;"> Date:
+                {{challanData.createdAt | date:'dd-MMM-yyyy'}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div style="margin:10px;border: 1px solid blue;">
+        <table class="table table-bordered" style="width:98%;margin:1%;border: 1px solid blue;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 30px;">No.</th>
+              <th scope="col">PARTICULARS</th>
+              <th scope="col">QUANTITY</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of items; let i = index;">
+              <th scope="row">{{i+1}}</th>
+              <th scope="row">{{item.decorationItemsId.itemName}}</th>
+              <th scope="row">{{item.quantity}}</th>
+            </tr>
+            <tr *ngFor="let item of ghostRow; let i = index;">
+              <th scope="row" style="height: 37px;;"></th>
+              <th scope="row"></th>
+              <th scope="row"></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

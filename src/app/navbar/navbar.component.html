@@ -1,0 +1,70 @@
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark indigo scrolling-navbar intro-fixed-nav"
+    [containerInside]="false">
+    <mdb-navbar-brand>
+        <a class="logo navbar-brand" href="#"><strong>Avishkar Decorators</strong></a>
+    </mdb-navbar-brand>
+    <links>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item waves-light" mdbWavesEffect routerLinkActive="active" *ngIf="!loggedin">
+                <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item waves-light" mdbWavesEffect routerLinkActive="active">
+                <a class="nav-link" routerLink="/admin/dashboard" *ngIf="loggedin">Dashboard </a>
+            </li>
+            <li class="nav-item waves-light" mdbWavesEffect routerLinkActive="active">
+                <a class="nav-link" routerLink="/admin/user" *ngIf="loggedin">User </a>
+            </li>
+            <li class="nav-item waves-light" mdbWavesEffect routerLinkActive="active">
+                <a class="nav-link" routerLink="/admin/decoration/item" *ngIf="loggedin">Inventory </a>
+            </li>
+            <li class="nav-item waves-light" mdbWavesEffect routerLinkActive="active">
+                <a class="nav-link" routerLink="/admin/employee" *ngIf="loggedin">Employee </a>
+            </li>
+            <li class="nav-item waves-light" mdbWavesEffect routerLinkActive="active">
+                <a class="nav-link" routerLink="/admin/clients" *ngIf="loggedin">Clients </a>
+            </li>
+            <li class="nav-item dropdown" dropdown *ngIf="loggedin">
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                    <mdb-icon fas icon="file-image"></mdb-icon> Gallery<span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item" routerLink="/admin/gallery/images" >View Gallery </a>
+                    <a class="dropdown-item" routerLink="/admin/gallery/images/form">Add Images</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" dropdown *ngIf="loggedin">
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                    <mdb-icon fas icon="cog"></mdb-icon> Challan<span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item" routerLink="/admin/challan">Create Challan </a>
+                    <a class="dropdown-item" routerLink="/admin/challan/view">View Challans</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" dropdown *ngIf="loggedin">
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                    <mdb-icon fas icon="cog"></mdb-icon> transaction<span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item" routerLink="/admin/transaction">Create transaction </a>
+                    <a class="dropdown-item" routerLink="/admin/transaction/view">View transaction</a>
+                </div>
+            </li>
+            
+            <li class="nav-item dropdown" dropdown *ngIf="loggedin">
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                    <mdb-icon fas icon="file-invoice"></mdb-icon> Invoices<span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item" routerLink="/admin/invoice">Create Invoice </a>
+                    <a class="dropdown-item" routerLink="/admin/invoice/view">View Invoice List</a>
+                </div>
+            </li>
+            <li class="nav-item  waves-light" mdbWavesEffect routerLinkActive="active">
+                <a class="nav-link" (click)="logout()" *ngIf="loggedin">Logout </a>
+            </li>
+            <li class="nav-item waves-light" mdbWavesEffect routerLinkActive="active">
+                <a class="nav-link" routerLink="/login" *ngIf="!loggedin">Login</a>
+            </li>
+            <li class="nav-item waves-light" mdbWavesEffect routerLinkActive="active">
+                <a class="nav-link" routerLink="/signup" *ngIf="!loggedin">Signup</a>
+            </li>
+        </ul>
+    </links>
+</mdb-navbar>

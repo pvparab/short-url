@@ -1,0 +1,69 @@
+<div class="container-fluid  mt-5">
+  <div class="row">
+    <app-spinner [show]="spinner"></app-spinner>
+    <div class="col-md-12 mx-auto">
+      <div class="card-group">
+        <div class="card p-1">
+          <div class="card-body">
+            <form [formGroup]="registerInfo" >
+              <h2>User Page</h2>
+              <div class="row">
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput type="text" class="form-control" id="first" formControlName="first">
+                    <label for="first" class="">First Name</label>
+                    <mdb-error>{{firstError}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput type="text" class="form-control" id="middle" formControlName="middle">
+                    <label for="middle" class="">Father / Husband Name</label>
+                    <mdb-error>{{middleError}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput type="text" class="form-control" id="last" formControlName="last">
+                    <label for="last" class="">Last Name</label>
+                    <mdb-error>{{lastError}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput type="text" class="form-control" id="phone" formControlName="phone">
+                    <label for="phone" class="">Phone Number</label>
+                    <mdb-error>{{phoneError}}</mdb-error>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-sm-3 col-lg-3">
+                  <div class="md-form">
+                    <input mdbInput type="text" class="form-control" id="email" formControlName="email">
+                    <label for="email" class="">Email Address</label>
+                    <mdb-error>{{emailError}}</mdb-error>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-3 col-lg-3" *ngIf="!user">
+                    <div class="md-form">
+                      <input mdbInput type="text" class="form-control" id="password" formControlName="password">
+                      <label for="password" class="">Password</label>
+                      <mdb-error>{{passwordError}}</mdb-error>
+                    </div>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-12 text-center">
+                  <button type="button" (click)="updateUser()" class="btn btn-primary btn-sm" *ngIf="user && user.userId">Update User</button>
+                  <button type="button" (click)="addUser()" class="btn btn-primary btn-sm mr-2" *ngIf="!user">Add User</button>
+                  <a routerLink="/admin/user" class="btn btn-primary btn-sm mr-2">Go Back</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

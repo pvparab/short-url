@@ -1,0 +1,122 @@
+<app-spinner [show]="spinner"></app-spinner>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <button style="margin-top: 30px;" class="btn btn-primary" printSectionId="print-challan" [useExistingCss]="true"
+        ngxPrint>Print and/or Save as PDF</button>
+      <!-- <button style="margin-top: 30px;" class="btn btn-primary">Send as Email</button> -->
+    </div>
+  </div>
+</div>
+<div id="print-challan" class="container-fluid" style="margin-top: 30px;border:1px solid #e8e8e8;color: blue">
+  <div class="row">
+    <div class="col-md-12">
+      <div style="margin:10px;border: 1px solid blue;">
+        <div style="margin:10px;border: 1px solid blue;">
+          <h5 class="text-center" style="margin-bottom: 0px">GST INVOICE</h5>
+          <h1 class="text-center text-danger" style="margin-bottom: 0px">AVISHKAR DECORATORS</h1>
+          <h6 class="text-center" style="margin-bottom: 0px">MANDAP & STAGE DECORATORS</h6>
+          <h6 class="text-center" style="margin-bottom: 0px">SPECIALIST IN : ALL TYPES OF VENU AND SETUPS</h6>
+          <p class="text-center" style="margin-bottom: 0px">Near Saibaba Mandir, Opp. M.I.G. Cricket Club, Ghandhi
+            Nagar, Bandra (East), Mumbai -
+            400051.</p>
+          <p class="text-center">Tel. : 022 2642 0737 &nbsp;&nbsp;Mob. : 91 98210 99650</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div style="margin:10px;border: 1px solid blue;">
+        <div style="margin:10px;border: 1px solid blue;">
+          <div class="row text-left">
+            <div class="col-md-9" style="border-right: 1px solid blue;">
+              <p style="border-bottom: 1px solid blue;margin: 20px;" *ngIf="clientData"> M/s. -
+                {{clientData.clientName}}
+              </p>
+              <p style="border-bottom: 1px solid blue;margin: 20px;">
+                {{clientData.officeAddress}}
+              </p>
+              <p style="border-bottom: 1px solid blue;margin: 20px;">
+
+              </p>
+            </div>
+            <div class="col-md-3" style="border-left: 1px solid blue;">
+
+              Invoice No : <h1 style="display: inline-block;margin-top:1rem;">{{invoiceid}}</h1>
+
+              <p style="border-bottom: 1px solid blue;padding: 10px;"> Date:
+                {{invoiceData.createdAt | date:'MMM, dd , yyyy'}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div style="margin:10px;border: 1px solid blue;">
+        <table class="table table-bordered" style="width:98%;margin:1%;border: 1px solid blue;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 30px;">No.</th>
+              <th scope="col">PARTICULARS</th>
+              <th scope="col">PRICE</th>
+              <th scope="col">QUANTITY</th>
+              <th scope="col">TOTAL</th>
+
+            </tr>
+          </thead>
+          <tbody *ngFor="let item of items; let i = index;">
+            <tr>
+              <td scope="row">{{i+1}}</td>
+              <td scope="row" colspan="4">Challan Id {{item.challanId}} generated on
+                {{item.createdAt | date:'MMM, dd , yyyy'}}</td>
+            </tr>
+            <tr *ngFor="let ditem of item.items; let i = index;">
+              <td scope="row"></td>
+              <td scope="row" class="text-left">{{ditem.decorationItemsId.itemName}}</td>
+              <th scope="row">{{ditem.clientPrice}}</th>
+              <th scope="row">{{ditem.quantity}}</th>
+              <th scope="row">Rs. {{ditem.total}}</th>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr *ngFor="let item of ghostRow; let i = index;">
+              <th scope="row" style="height: 37px;;"></th>
+              <th scope="row"></th>
+              <th scope="row"></th>
+              <th scope="row"></th>
+              <th scope="row"></th>
+            </tr>
+            <tr>
+              <td colspan="4" class="text-right"> Total Amount to be paid</td>
+              <td>Rs. {{totalCost}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 text-left">
+      <p style="margin-left:5px;">
+        PAN NO :-ABDPT 2177M
+      </p>
+      <div style="margin:2px;border: 1px solid blue;">
+        <p style="margin:2px;">
+          GSTTIN No. : 27ABDPT2177MM1Z4 | S.A.C. :- 997329
+        </p>
+      </div>
+    </div>
+    <div class="col-md-2 text-center">
+      <p style="margin:2px;"> E & O.E</p>
+
+    </div>
+    <div class="col-md-4 text-right">
+      <p style="margin:4px;">For AVISHKAR DECORATORS</p>
+    </div>
+  </div>
+</div>

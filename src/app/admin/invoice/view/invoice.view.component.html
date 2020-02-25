@@ -1,0 +1,33 @@
+<app-spinner [show]="spinner"></app-spinner>
+
+<div class="container-fluid  mt-5">
+  <div class="row">
+    <div class="col-md-12 col-12 mx-auto">
+      <h1>Invoice List</h1>
+    </div>
+  </div>
+  <div class="row" *ngIf="invoices.length > 0" style="margin-top:2em;">
+    <div class="col-md-12 col-12 mx-auto ">
+      <table class="table table-inbox table-hover table-bordered">
+        <thead>
+          <tr class="unread">
+            <td class="view-message" >No.</td>
+            <td class="view-message">Date of Creation</td>
+            <td class="view-message">Description</td>
+            <td class="view-message">View/print invoice</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="unread" *ngFor="let invoice of invoices; let i = index;">
+            <td class="view-message">{{i+1}}</td>
+            <td class="view-message" *ngIf="invoice.invoicesId">{{invoice.createdAt | date:'dd-MMM-yyyy hh:mm a'}}</td>
+            <td class="view-message" *ngIf="invoice.invoicesId">{{invoice.description}}</td>
+            <td class="view-message" *ngIf="invoice.invoicesId">
+              <a target="_blank" routerLink="/admin/invoice/print/{{invoice.invoicesId}}" class="btn btn-primary btn-sm">View/print Invoice</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

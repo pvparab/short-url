@@ -1,0 +1,92 @@
+<div class="container-fluid  mt-3">
+  <div class="row">
+    <app-spinner [show]="spinner"></app-spinner>
+    <div class="col-md-4 mx-auto">
+      <bwm-image-upload (imageUploaded)="handleImageUpload($event)" (imageError)="handleImageError($event)">
+      </bwm-image-upload>
+    </div>
+    <div class="col-md-8 mx-auto">
+      <div class="card-group">
+        <div class="card p-1">
+          <div class="card-body">
+            <form [formGroup]="galleryImageForm">
+              <h2>Gallery</h2>
+              <div class="row">
+                  <ng-autocomplete #decorationItemsRef [data]="clientData" placeHolder="Enter the Client  Name"
+                  [searchKeyword]="keyword" (selected)='selectEvent($event)' formControlName="fclientsId"
+                  (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
+                  [notFoundTemplate]="notFoundTemplate">
+                </ng-autocomplete>
+                <ng-template #itemTemplate let-item>
+                    <a [innerHTML]="item.clientName" class="text-left"></a>
+                  </ng-template>
+                  <ng-template #notFoundTemplate let-notFound>
+                    <div [innerHTML]="notFound"></div>
+                  </ng-template>
+                <div class="col-12 col-sm-8 col-lg-8">
+                  <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-6">
+                      <div class="md-form">
+                        <input mdbInput
+                               type="text"
+                               class="form-control"
+                               id="description"
+                               formControlName="description">
+                        <label for="description"
+                               class="">Description</label>
+                        <mdb-error>{{getError('description')}}</mdb-error>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-6">
+                      <div class="md-form">
+                        <input mdbInput
+                               type="text"
+                               class="form-control"
+                               id="category"
+                               formControlName="category">
+                        <label for="category"
+                               class="">Venue</label>
+                        <mdb-error>{{getError('category')}}</mdb-error>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 text-center">
+                      <button type="button"
+                              (click)="updateItem()"
+                              class="btn btn-primary btn-sm"
+                              *ngIf="item && item.galleryImagesId">Update Item</button>
+                      <button type="button"
+                              (click)="addItem()"
+                              class="btn btn-primary btn-sm mr-2"
+                              *ngIf="!item">Add
+                        Item</button>
+                      <a routerLink="/admin/decoration/item"
+                         class="btn btn-primary btn-sm mr-2">Go Back</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4 col-lg-4">
+                  <span *ngIf="item">
+                    <img [src]="item.imageUrl"
+                         class="img-thumbnail"
+                         style="height: 150px;"
+                         alt='ITEM'
+                         onerror="this.src='assets/no-image.svg'" />
+                  </span>
+                  <span *ngIf="!item">
+                    <img src="assets/no-image.svg"
+                         class="img-thumbnail"
+                         style="height: 150px;"
+                         alt='ITEM'
+                         onerror="this.src='assets/no-image.svg'" />
+                  </span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

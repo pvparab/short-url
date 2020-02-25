@@ -1,0 +1,99 @@
+<app-spinner [show]="spinner"></app-spinner>
+<div class="container-fluid  mt-5">
+  <div class="row">
+    <div class="col-md-12 col-12 mx-auto">
+      <h3>Generate Challan</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-6 mx-auto">
+      <select class="form-control" [(ngModel)]="clientId" (change)="clientOnChange()">
+        <option value=""> Please select a client</option>
+        <option *ngFor="let client of clients" [value]="client.clientsId">
+          {{client.clientName}}
+        </option>
+
+      </select>
+
+    </div>
+    <div class="col-md-6 col-6  mx-auto">
+      <input [(ngModel)]="description" class="form-control" type="text" placeholder="Enter description">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-12 ">
+      <form class="form-inline" (ngSubmit)="addInventory()" [formGroup]="selectItemForm"
+        *ngIf="decorationItems.length > 0">
+        <div class="form-group mb-2">
+          <div class="ng-autocomplete">
+            <ng-autocomplete #decorationItemsRef [data]="decorationItems" placeHolder="Enter the Item  Name"
+              [searchKeyword]="keyword" (selected)='selectEvent($event)' formControlName="currentItem"
+              (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
+              [notFoundTemplate]="notFoundTemplate">
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+              <a [innerHTML]="item.sitemName" class="text-left"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+              <div [innerHTML]="notFound"></div>
+            </ng-template>
+          </div>
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+          <button type="submit" class="btn btn-primary mb-2">Add Item To list</button>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+  <div class="row" *ngIf="decorationItems.length > 0" style="margin-top:2em;">
+    <div class="col-md-12 col-12 mx-auto ">
+      <form [formGroup]="challanForm" (ngSubmit)="createChallan()">
+        <div class="table-responsive" style="height: 40vh;overflow-y: scroll">
+          <table class="table table-inbox table-hover table-bordered">
+            <thead>
+              <tr class="unread">
+                <td class="view-message">No.</td>
+                <td class="view-message">Image</td>
+                <td class="view-message">Item Name</td>
+                <td class="view-message">Description</td>
+                <td class="view-message">Quantity</td>
+                <td class="view-message">Client price</td>
+                <td class="view-message">Delete</td>
+
+              </tr>
+            </thead>
+            <tbody formArrayName="items">
+              <tr>
+                <td colspan="6" *ngIf="tdecorationItems.length==0"> ALL your decoration item whill be listed here.</td>
+              </tr>
+              <tr class="unread" *ngFor="let decorationItem of tdecorationItems; let i = index;" [formGroupName]="i">
+                <td class="view-message  dont-show">{{i+1}}</td>
+                <td class="view-message  text-right"><img src="{{decorationItem.itemUrl}}" alt="Item Image" /></td>
+                <td class="view-message  dont-show">{{decorationItem.decorationItemsId.itemName}}</td>
+                <td class="view-message ">{{decorationItem.decorationItemsId.description}}</td>
+                <td class="view-message  text-right">
+                  <input formControlName="quantity" class="form-control form-control-sm" type="text"
+                    placeholder="Enter Quantity">
+                </td>
+                <td class="view-message  text-right">
+                  <input formControlName="fdecorationItemsId" type="hidden">
+                  <input formControlName="fclientsId" type="hidden">
+                  <input formControlName="clientPrice" class="form-control form-control-sm" type="text"
+                    placeholder="Client Price">
+                </td>
+                <td class="view-message">
+                  <a class="btn btn-primary btn-sm" (click)="removeItem(decorationItem,i)">Delete</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button type="submit" class="btn btn-info">Create Challan</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,337 @@
+<div class="container-fluid  mt-5">
+  <form [formGroup]="clientsForm">
+    <div class="row">
+      <app-spinner [show]="spinner"></app-spinner>
+      <div class="col-md-12 mx-auto">
+        <div class="card-group">
+          <div class="card p-1">
+            <div class="card-body">
+              <h2>Clients Details Page</h2>
+              <div class="row text-left">
+                <fieldset class="col-11 col-sm-11 col-lg-11">
+                  <legend>Office Details:</legend>
+                  <div class="row text-left">
+                    <div class="col-12 col-sm-4 col-lg-4">
+                      <div class="form-group required">
+                        <label for="clientName">Client Name</label>
+                        <input type="text" id="clientName" formControlName="clientName" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.clientName.errors }" />
+                        <div *ngIf="submitted && form.clientName.errors" class="invalid-feedback">
+                          {{getError('clientName')}}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-4 col-lg-4">
+                      <div class="form-group required">
+                        <label for="clientName">Phone</label>
+                        <input type="text" formControlName="officePhone" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.officePhone.errors }" />
+                        <div *ngIf="submitted && form.officePhone.errors" class="invalid-feedback">
+                          {{getError('officePhone')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4">
+                      <div class="form-group required">
+                        <label for="clientName">Email</label>
+                        <input type="text" formControlName="officeEmail" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.officeEmail.errors }" />
+                        <div *ngIf="submitted && form.officeEmail.errors" class="invalid-feedback">
+                          {{getError('officeEmail')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4">
+                      <div class="form-group">
+                        <label for="clientName">Address</label>
+                        <input type="text" formControlName="officeAddress" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.officeAddress.errors }" />
+                        <div *ngIf="submitted && form.officeAddress.errors" class="invalid-feedback">
+                          {{getError('officeAddress')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4">
+                      <div class="form-group">
+                        <label for="clientName">Fax</label>
+                        <input type="text" formControlName="officeFax" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.officeFax.errors }" />
+                        <div *ngIf="submitted && form.officeFax.errors" class="invalid-feedback">
+                          {{getError('officeFax')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4">
+                      <div class="form-group">
+                        <label for="clientName">Whatsapp No.</label>
+                        <input type="text" formControlName="officeWhatsappNo" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.officeWhatsappNo.errors }" />
+                        <div *ngIf="submitted && form.officeWhatsappNo.errors" class="invalid-feedback">
+                          {{getError('officeWhatsappNo')}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+                <fieldset class="col-11 col-sm-11 col-lg-11">
+                  <legend>Contact Person Details:</legend>
+                  <div class="row text-left">
+                    <div class="col-12 col-sm-4 col-lg-4">
+                      <div class="form-group required">
+                        <label for="contactPerson">Name</label>
+                        <input id="contactPerson" type="text" formControlName="contactPerson" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.contactPerson.errors }" />
+                        <div *ngIf="submitted && form.contactPerson.errors" class="invalid-feedback">
+                          {{getError('contactPerson')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4">
+                      <div class="form-group required">
+                        <label for="contactPerson">Number</label>
+                        <input type="text" formControlName="contactNumber" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.contactNumber.errors }" />
+                        <div *ngIf="submitted && form.contactNumber.errors" class="invalid-feedback">
+                          {{getError('contactNumber')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4">
+                      <div class="form-group required">
+                        <label for="contactPerson">Email</label>
+                        <input type="text" formControlName="contactEmail" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.contactEmail.errors }" />
+                        <div *ngIf="submitted && form.contactEmail.errors" class="invalid-feedback">
+                          {{getError('contactEmail')}}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-4 col-lg-4">
+                      <div class="form-group">
+                        <label for="contactPerson ">Whatsapp No.</label>
+                        <input type="text" formControlName="contactWhatsappNo" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.contactWhatsappNo.errors }" />
+                        <div *ngIf="submitted && form.contactWhatsappNo.errors" class="invalid-feedback">
+                          {{getError('contactWhatsappNo')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4">
+                      <div class="form-group">
+                        <label for="contactPerson">Role</label>
+                        <input type="text" formControlName="contactRole" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.contactRole.errors }" />
+                        <div *ngIf="submitted && form.contactRole.errors" class="invalid-feedback">
+                          {{getError('contactRole')}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+                <fieldset class="col-11 col-sm-11 col-lg-11">
+                  <legend>Bank Details:</legend>
+                  <div class="row text-left">
+                    <div class="col-12 col-sm-4 col-lg-4">
+                      <div class="form-group">
+                        <label for="contactPerson">Account Holder Name</label>
+                        <input type="text" formControlName="bankAccountName" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.bankAccountName.errors }" />
+                        <div *ngIf="submitted && form.bankAccountName.errors" class="invalid-feedback">
+                          {{getError('bankAccountName')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4">
+                      <div class="form-group">
+                        <label for="contactPerson">Account No.</label>
+                        <input type="text" formControlName="bankAccountNo" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.bankAccountNo.errors }" />
+                        <div *ngIf="submitted && form.bankAccountNo.errors" class="invalid-feedback">
+                          {{getError('bankAccountNo')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4">
+                      <div class="form-group">
+                        <label for="contactPerson">Bank Name</label>
+                        <input type="text" formControlName="bankName" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.bankName.errors }" />
+                        <div *ngIf="submitted && form.bankName.errors" class="invalid-feedback">
+                          {{getError('bankName')}}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-4 col-lg-4">
+                      <div class="form-group">
+                        <label for="contactPerson">IFSC code</label>
+                        <input type="text" formControlName="bankIfsc" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.bankIfsc.errors }" />
+                        <div *ngIf="submitted && form.bankIfsc.errors" class="invalid-feedback">
+                          {{getError('bankIfsc')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4">
+                      <div class="form-group">
+                        <label for="contactPerson">MICR code</label>
+                        <input type="text" formControlName="bankMicr" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.bankMicr.errors }" />
+                        <div *ngIf="submitted && form.bankMicr.errors" class="invalid-feedback">
+                          {{getError('bankMicr')}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+                <fieldset class="col-11 col-sm-11 col-lg-11">
+                  <legend>Office Details:</legend>
+                  <div class="row text-left">
+                    <div class="col-12 col-sm-3 col-lg-3">
+                      <div class="form-group">
+                        <label for="contactPerson">Person Name</label>
+                        <input type="text" formControlName="officePersonName" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.officePersonName.errors }" />
+                        <div *ngIf="submitted && form.officePersonName.errors" class="invalid-feedback">
+                          {{getError('officePersonName')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-3 col-lg-3">
+                      <div class="form-group">
+                        <label for="contactPerson">Phone NO.</label>
+
+                        <input type="text" formControlName="phone" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.phone.errors }" />
+                        <div *ngIf="submitted && form.phone.errors" class="invalid-feedback">
+                          {{getError('phone')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-3 col-lg-3">
+                      <div class="form-group required">
+                        <label for="contactPerson">GST NO.</label>
+
+                        <input type="text" formControlName="gstNo" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.gstNo.errors }" />
+                        <div *ngIf="submitted && form.gstNo.errors" class="invalid-feedback">
+                          {{getError('gstNo')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-3 col-lg-3">
+                      <div class="form-group required">
+                        <label for="contactPerson">Pan No. Url</label>
+
+                        <input type="text" formControlName="panNo" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.panNo.errors }" />
+                        <div *ngIf="submitted && form.panNo.errors" class="invalid-feedback">
+                          {{getError('panNo')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-3 col-lg-3">
+                      <div class="form-group">
+                        <label>
+                          <input placeholder="contractStartDate" class="form-control"
+                            formControlName="contractStartDate" [owlDateTimeTrigger]="contractStartDate"
+                            [owlDateTime]="contractStartDate"
+                            [ngClass]="{ 'is-invalid': submitted && form.contractStartDate.errors }">
+                          <owl-date-time [pickerType]="'calendar'" #contractStartDate></owl-date-time>
+                        </label>
+                        <div *ngIf="submitted && form.contractStartDate.errors" class="invalid-feedback">
+                          {{getError('contractStartDate')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-3 col-lg-3">
+                      <div class="form-group">
+                        <label>
+                          <input placeholder="contractEndDate" class="form-control" formControlName="contractEndDate"
+                            [owlDateTimeTrigger]="contractEndDate" [owlDateTime]="contractEndDate"
+                            [ngClass]="{ 'is-invalid': submitted && form.contractStartDate.errors }">
+                          <owl-date-time [pickerType]="'calendar'" #contractEndDate></owl-date-time>
+                        </label>
+                        <div *ngIf="submitted && form.contractEndDate.errors" class="invalid-feedback">
+                          {{getError('contractEndDate')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-3 col-lg-3">
+                      <div class="form-group">
+                        <input placeholder="websiteUrl No" type="text" formControlName="websiteUrl" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.websiteUrl.errors }" />
+                        <div *ngIf="submitted && form.websiteUrl.errors" class="invalid-feedback">
+                          {{getError('websiteUrl')}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-3 col-lg-3">
+                      <div class="form-group">
+                        <label for="contactPerson">Profile Url</label>
+                        <input type="text" formControlName="profileUrl" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && form.profileUrl.errors }" />
+                        <div *ngIf="submitted && form.profileUrl.errors" class="invalid-feedback">
+                          {{getError('profileUrl')}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="row" *ngIf="decorationItems.length > 0" style="margin-top:2em;">
+      <div class="col-md-12 col-12 mx-auto ">
+        <div class="table-responsive" style="height: 40vh;overflow-y: scroll">
+          <table class="table table-inbox table-hover table-bordered">
+            <thead>
+              <tr class="unread">
+                <td class="view-message">#</td>
+                <td class="view-message">Image</td>
+                <td class="view-message">Item Name</td>
+                <td class="view-message">Description</td>
+                <td class="view-message">Price</td>
+                <td class="view-message">New price</td>
+              </tr>
+            </thead>
+            <tbody formArrayName="itemsCost">
+              <tr class="unread" *ngFor="let decorationItem of decorationItems; let i = index;" [formGroupName]="i">
+                <td class="view-message  text-right">
+                  {{i+1}}
+                </td>
+                <td class="view-message  text-right"><img class="img-height-table" src="{{decorationItem.itemUrl}}"
+                    alt="Item Image" /></td>
+                <td class="view-message  dont-show">{{decorationItem.itemName}}</td>
+                <td class="view-message ">{{decorationItem.description}}</td>
+                <td class="view-message  text-right">{{decorationItem.price}}</td>
+                <td class="view-message  text-right">
+                  <input formControlName="fdecorationItemsId" type="hidden">
+                  <input formControlName="clientPrice" class="form-control form-control-sm" type="text"
+                    placeholder="Enter New Price">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <button type="button" (click)="updateItem()" class="btn btn-primary btn-sm"
+          *ngIf="item && item.clientsId">Update
+          Client</button>
+        <button type="button" (click)="addItem()" class="btn btn-primary btn-sm mr-2" *ngIf="!item">Add
+          Client</button>
+        <a routerLink="/admin/clients" class="btn btn-primary btn-sm mr-2">Go Back</a>
+      </div>
+    </div>
+  </form>
+</div>

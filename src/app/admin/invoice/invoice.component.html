@@ -1,0 +1,140 @@
+<app-spinner [show]="spinner"></app-spinner>
+<div class="container-fluid  mt-5">
+	<div class="row">
+		<div class="col-md-12 col-12 mx-auto">
+			<h1>Invoices List</h1>
+		</div>
+	</div>
+	<div class="row" *ngIf="challans.length > 0" style="margin-top:2em;">
+		<div class="col-md-12 col-12 mx-auto ">
+			<form [formGroup]="selectItemForm" (ngSubmit)="createInvoice()">
+
+				<div class="table-responsive" style="height: 40vh;overflow-y: scroll">
+
+					<table class="table table-inbox table-hover table-bordered">
+						<thead>
+							<tr class="unread">
+								<td class="view-message">#</td>
+								<td class="view-message"></td>
+								<td class="view-message">Challan Id</td>
+								<td class="view-message">Challan Description</td>
+								<td class="view-message">Client name</td>
+								<td class="view-message">View/print Challan</td>
+							</tr>
+						</thead>
+						<tbody formArrayName="items">
+							<tr class="unread" *ngFor="let challan of challans; let i = index;" [formGroupName]="i">
+								<td class="view-message">{{i+1}}</td>
+								<td class="view-message">
+									<input formControlName="ischecked" type="checkbox">
+								</td>
+								<td class="view-message" *ngIf="challan.challanId">{{challan.challanId}}</td>
+								<td class="view-message" *ngIf="challan.challanId">{{challan.description}}</td>
+								<td class="view-message" *ngIf="challan.challanId">{{challan.clientsId.clientName}}</td>
+								<td class="view-message" *ngIf="challan.challanId">
+									<a target="_blank" routerLink="/admin/challan/print/{{challan.challanId}}"
+										class="btn btn-primary btn-sm">View/print Challan</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<button style="margin-top: 30px;" class="btn btn-primary" type="submit">Create Invoice</button>
+			</form>
+		</div>
+	</div>
+</div>
+<div *ngIf="items.length > 0" class="container-fluid" style="margin-top: 30px;border:1px solid #e8e8e8;color: blue">
+	<div class="row">
+		<div class="col-md-12">
+			<div style="margin:10px;border: 1px solid blue;">
+				<div style="margin:10px;border: 1px solid blue;">
+					<h5 class="text-center" style="margin-bottom: 0px">GST INVOICE</h5>
+					<h1 class="text-center text-danger" style="margin-bottom: 0px">AVISHKAR DECORATORS</h1>
+					<h6 class="text-center" style="margin-bottom: 0px">MANDAP & STAGE DECORATORS</h6>
+					<h6 class="text-center" style="margin-bottom: 0px">SPECIALIST IN : ALL TYPES OF VENU AND SETUPS</h6>
+					<p class="text-center" style="margin-bottom: 0px">Near Saibaba Mandir, Opp. M.I.G. Cricket Club,
+						Ghandhi
+						Nagar, Bandra (East), Mumbai -
+						400051.</p>
+					<p class="text-center">Tel. : 022 2642 0737 &nbsp;&nbsp;Mob. : 91 98210 99650</p>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div style="margin:10px;border: 1px solid blue;">
+				<div style="margin:10px;border: 1px solid blue;">
+					<div class="row text-left">
+						<div class="col-md-9" style="border-right: 1px solid blue;">
+							<p style="border-bottom: 1px solid blue;margin: 20px;"> M/s. -
+								{{clientData.clientName}} {{clientData.officeAddress}}
+							</p>
+							<p style="border-bottom: 1px solid blue;margin: 20px;">
+
+							</p>
+							<p style="border-bottom: 1px solid blue;margin: 20px;">
+
+							</p>
+						</div>
+						<div class="col-md-3" style="border-left: 1px solid blue;">
+							<p style="border-bottom: 1px solid blue;padding: 10px;">
+								Challan No : {{challanData.challanId}}
+							</p>
+							<p style="border-bottom: 1px solid blue;padding: 10px;"> Date:
+								{{challanData.createdAt | date:'dd-MMM-yyyy'}}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div style="margin:10px;border: 1px solid blue;">
+				<table class="table table-bordered" style="width:98%;margin:1%;border: 1px solid blue;">
+					<thead>
+						<tr>
+							<th scope="col">No.</th>
+							<th scope="col">PARTICULARS</th>
+							<th scope="col">QUANTITY</th>
+							<th scope="col">RATE</th>
+							<th scope="col">AMOUNT</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let item of items; let i = index;">
+							<th scope="row">{{i+1}}</th>
+							<th scope="row">{{item.decorationItemsId.itemName}}</th>
+							<th scope="row">{{item.quantity}}</th>
+							<th scope="row">{{item.clientPrice}}</th>
+							<th scope="row">{{ (+item.quantity) * (+item.clientPrice) }}</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 text-left">
+			<p style="margin:10px;">
+				PAN NO ABDPT 2177M
+			</p>
+			<div style="margin:10px;border: 1px solid blue;">
+				<p style="margin:10px;">
+					GSTTIN No. : 27ABDPT2177MM1Z4<br />
+					S.A.C. - 997329
+				</p>
+			</div>
+		</div>
+		<div class="col-md-3 text-center">
+			E & O.E
+		</div>
+		<div class="col-md-3 text-right">
+			<p style="margin:10px;">For AVISHKAR DECORATORS</p>
+		</div>
+	</div>
+</div>
